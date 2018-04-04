@@ -1,0 +1,103 @@
+ {
+   "resultCount": 9,
+
+   "pageResults": [
+   {
+     "resultCount": 3,
+     "results": [
+       {
+        "listId": "https://api.census.gov/search/v1/#web.0",
+        "displayURL": "census.gov/hhes/commuting",
+        "snippet": "Commuting (Journey to Work). Main section. Demographic data and reports from the U.S. Census Bureau",
+        "title": "Commuting (Journey to Work) Main - People and Households ...",
+        "url": "https://www.census.gov/hhes/commuting/"
+      },
+       {
+        "listId": "https://api.census.gov/search/v1/#web.1",
+        "displayURL": "census.gov/hhes/commuting",
+        "snippet": "Commuting (Journey to Work). Main section. Demographic data and reports from the U.S. Census Bureau",
+        "title": "Commuting (Journey to Work) Main - People and Households ...",
+        "url": "https://www.census.gov/hhes/commuting/"
+      },
+       {
+        "listId": "https://api.census.gov/search/v1/#web.2",
+        "displayURL": "census.gov/hhes/commuting",
+        "snippet": "Commuting (Journey to Work). Main section. Demographic data and reports from the U.S. Census Bureau",
+        "title": "Commuting (Journey to Work) Main - People and Households ...",
+        "url": "https://www.census.gov/hhes/commuting/"
+      }
+    ],
+    "moreItems": "https://data.census.gov/cedsci/search/web"
+   }
+ ],
+   "tableResults": [
+   {
+     "resultCount": 3,
+     "results": [
+       {
+        "listId": "https://api.census.gov/search/v1/#table.0",
+        "tableId": "s0101",
+        "tableName": "age and sex",
+        "program": "acs 1-year estimates",
+        "vintage": [2016],
+        "geography": ["0100000us"],
+        "accessURI": "https://data.census.gov/cedsci/search/map?g=0100000us&ps=app*text@$app*tmtableid@acsst1y2016.s0101$app*tmtablename@age%20and%20sex$app*map@thematic"
+      },
+       {
+        "listId": "https://api.census.gov/search/v1/#table.1",
+        "tableId": "s0101",
+        "tableName": "age and sex",
+        "program": "acs 1-year estimates",
+        "vintage": [2016],
+        "geography": ["0100000us"],
+        "accessURI": "https://data.census.gov/cedsci/search/map?g=0100000us&ps=app*text@$app*tmtableid@acsst1y2016.s0101$app*tmtablename@age%20and%20sex$app*map@thematic"
+      },
+       {
+        "listId": "https://api.census.gov/search/v1/#table.2",
+        "tableId": "s0101",
+        "tableName": "age and sex",
+        "program": "acs 1-year estimates",
+        "vintage": [2016],
+        "geography": ["0100000us"],
+        "accessURI": "https://data.census.gov/cedsci/search/map?g=0100000us&ps=app*text@$app*tmtableid@acsst1y2016.s0101$app*tmtablename@age%20and%20sex$app*map@thematic"
+      }
+    ],
+    "moreItems": "https://data.census.gov/cedsci/search/table"
+   }
+ ],
+ "mapResults": [
+   {
+     "resultCount": 3,
+     "results": [
+       {
+        "listId": "https://api.census.gov/search/v1/#map.0",
+        "mapId": "var1Col1s0101",
+        "sourceTableId": "s0101",
+        "program": "acs 1-year estimates",
+        "vintage": [2016],
+        "geography": ["0100000us"],
+        "accessURI": "https://data.census.gov/cedsci/search/map?g=0100000us&ps=app*text@$app*tmtableid@acsst1y2016.s0101$app*tmtablename@age%20and%20sex$app*map@thematic"
+      },
+       {
+        "listId": "https://api.census.gov/search/v1/#map.1",
+        "mapId": "var1Col1s0101",
+        "sourceTableId": "s0101",
+        "program": "acs 1-year estimates",
+        "vintage": [2016],
+        "geography": ["0100000us"],
+        "accessURI": "https://data.census.gov/cedsci/search/map?g=0100000us&ps=app*text@$app*tmtableid@acsst1y2016.s0101$app*tmtablename@age%20and%20sex$app*map@thematic"
+      },
+       {
+        "listId": "https://api.census.gov/search/v1/#map.2",
+        "mapId": "var1Col1s0101",
+        "sourceTableId": "s0101",
+        "program": "acs 1-year estimates",
+        "vintage": [2016],
+        "geography": ["0100000us"],
+        "accessURI": "https://data.census.gov/cedsci/search/map?g=0100000us&ps=app*text@$app*tmtableid@acsst1y2016.s0101$app*tmtablename@age%20and%20sex$app*map@thematic"
+      }
+    ],
+    "moreItems": "https://data.census.gov/cedsci/search/map"
+   }
+ ]
+}

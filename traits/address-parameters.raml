@@ -1,0 +1,29 @@
+#%RAML 1.0 Trait
+# external library
+usage: Apply this trait to a GET method that supports the global pagination
+queryParameters:
+  key:
+    displayName: User API Key
+    type: string
+    description: Your Census API key
+    example: xxxxxxxxxxxxx3uld
+    required: true
+  query:
+    displayName: Query
+    type: string
+    description: This is the query parameter that allows you to use free-text search queries to find what you're looking for.
+    example: Population of Monroe County, New York in 2014
+    required: false
+  streetAddress?:
+    type: string
+  city?:
+    type: string
+  state?:
+    type: string
+  zip?:
+    type: string
+  benchmark?:
+    enum:
+      - Public_AR_Current
+      - Public_AR_ACS2016
+      - Public_AR_Census2010

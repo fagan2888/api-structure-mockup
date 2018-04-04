@@ -1,0 +1,189 @@
+#%RAML 1.0
+title: CEDSCI API
+description: This is the new Census API experience.
+version: v1
+baseUri:
+  value: http://{environment}.census.gov/{version}
+  (rediractable): true
+baseUriParameters:
+  environment:
+    type: string
+    enum: [ "api.stage", "api-web3.dev.ditd", "api-web6.test.ditd", "api" ]
+protocols: [ HTTPS ]
+mediaType: [ application/json ]
+documentation:
+  - title: Getting Started
+    content: !include README.md
+  - title: Terms of Service
+    content: See https://www.census.gov/data/developers/about/terms-of-service.html
+
+# Annotations
+annotationTypes:
+  deprecated:
+    properties:
+      date: datetime
+      # deprecatedBy: User
+      comment: nil | string
+  monitoringInterval:
+    type: integer
+    description: interval in seconds
+    example: 2
+  ready:
+    type: nil
+    description: markes a resource as ready
+    allowedTargets: Resource
+  info:
+    properties:
+      license:
+        type: string
+        enum: [ "CCO" ]
+    allowedTargets: API
+  rediractable: boolean
+
+(info):
+  license: CCO
+
+traits:
+  orderable: !include traits/orderable.raml
+  pageable: !include traits/pageable.raml
+  sortable: !include traits/sortable.raml
+  contentCacheable: !include traits/content-cacheable.raml
+  partial: !include traits/partial.raml
+  globalParameters: !include traits/global-parameters.raml
+  addressParameters: !include traits/address-parameters.raml
+
+types:
+ quickAnswer: !include schemas/quickAnswer.raml
+ tables: !include schemas/table.raml
+ maps: !include schemas/map.raml
+ search: !include schemas/search.raml
+ pages: !include schemas/page.raml
+ address: !include schemas/address.raml
+
+# Collection option (example bug prevented it)
+# resourceTypes:
+#   collection:
+#     get:
+#       description: Returns a list of <<resourcePathName|!pluralize>>
+#       queryParameters:
+#       is: [
+#         globalParameters,
+#         orderable: {fieldsList: "relevance, A-Z"},
+#         pageable
+#         ]
+#       responses:
+#         200:
+#           body:
+#             application/json:
+#               schema: <<resourcePathName|!singularize>>[]
+#
+#   collection-item:
+#     get:
+#       description: Returns a quick answer if we have one list of <<resourcePathName|!pluralize>>
+#       is: [
+#         globalParameters,
+#         orderable: {fieldsList: "relevance, A-Z"},
+#         pageable
+#         ]
+#       responses:
+#         200:
+#           body:
+#             application/json:
+#               schema: <<resourcePathName|!singularize>>
+
+/search:
+  displayName: Search
+  description: Find Census content, which includes data tables, geographic data, and webpages.
+  get:
+    description: Returns a list of searchable content
+    queryParameters:
+    is: [
+      globalParameters,
+      orderable: {fieldsList: "relevance, A-Z"},
+      pageable
+      ]
+    responses:
+      200:
+        body:
+          application/json:
+            schema: search
+
+  /quickAnswer:
+    get:
+      description: Returns a single answer based on the search parameters
+      queryParameters:
+      is: [
+        globalParameters
+        ]
+      responses:
+        200:
+          body:
+            application/json:
+              schema: quickAnswer
+  /table:
+    displayName: Data search
+    description: Use this endpoint to find Census tables
+    get:
+      description: Returns a list of <<resourcePathName|!pluralize>>
+      queryParameters:
+      is: [
+        globalParameters,
+        orderable: {fieldsList: "relevance, A-Z"},
+        pageable
+        ]
+      responses:
+        200:
+          body:
+            application/json:
+              schema: tables
+
+  /map:
+    displayName: Map
+    description: Search for map results
+    get:
+      description: Returns a list of map elements (a variable and at least one geography)
+      queryParameters:
+      is: [
+        globalParameters,
+        orderable: {fieldsList: "relevance, A-Z"},
+        pageable
+        ]
+      responses:
+        200:
+          body:
+            application/json:
+              schema: maps
+  /address:
+    description: This is the Census geocoder. Enter in an address or break it into the address' constituent parts.
+    get:
+      description: Returns a list of <<resourcePathName|!pluralize>>
+      queryParameters:
+      is: [
+        addressParameters,
+        ]
+      responses:
+        200:
+          body:
+            application/json:
+              schema: address
+
+  /page:
+    displayName: Webpage search
+    get:
+      description: Returns a list of <<resourcePathName|!pluralize>>
+      queryParameters:
+      is: [
+        globalParameters,
+        orderable: {fieldsList: "relevance, A-Z"},
+        pageable
+        ]
+      responses:
+        200:
+          body:
+            application/json:
+              schema: pages
+
+/access:
+  displayName: Access
+/explore:
+  displayName: Explore

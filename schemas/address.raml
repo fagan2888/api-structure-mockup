@@ -1,0 +1,38 @@
+#%RAML 1.0 DataType
+
+type: object
+properties:
+  matchedAddress:
+    type: string
+  coordinates:
+    type: object
+  tigerLineId:
+    type: string
+  addressComponents:
+    type: object
+    properties:
+      fromAddress:
+        type: number
+      toAddress:
+        type: number
+      preQualifier:
+        type: string
+      preDirection:
+        type: string
+      preType:
+        type: string
+      streetName:
+        type: string
+      suffixType:
+        type: string
+      suffixDirection:
+        type: string
+      suffixQualifier:
+        type: string
+      city:
+        type: string
+      state:
+        type: string
+      zip:
+        type: number
+example: !include ../examples/address.json

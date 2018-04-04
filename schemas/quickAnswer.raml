@@ -1,0 +1,33 @@
+#%RAML 1.0 DataType
+
+type: object
+displayName: Quick Answer
+description: This data type is designed to used for a quick answer to commonly asked questsions, such as 'What is the population of Ohio?'.
+properties:
+  val:
+    type: number | string
+  moe:
+    type: number | string
+  subject:
+    type: string
+  geography:
+    type: string
+  subjectDef:
+    type: string
+  sourceTableId:
+    type: string
+  sourceProgram:
+    type: string
+  vintage:
+    type: number
+  contextVal:
+    type: number | string
+  contextMOE:
+    type: number | string
+  contextSubject:
+    type: string
+  contextGeography:
+    type: string
+  accessURI:
+    type: string
+example: !include ../examples/quickAnswer.json

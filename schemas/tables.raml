@@ -1,0 +1,18 @@
+#%RAML 1.0 DataType
+
+type: object
+displayName: Table List
+description: This type provides a list of table results.
+properties:
+  resultCount:
+    type: number
+    displayName: Result Count
+    description: Provides the number of tables found.
+  results:
+    type: array
+    displayName: Table Result List
+    description: provides a list of table results.
+    items:
+      type: !include table.raml
+  moreItems: string
+example: !include ../examples/tables.json

@@ -1,0 +1,15 @@
+{
+  "val": 19795791,
+  "moe": "*****",
+  "subject": "Population in New York",
+  "geography": "0400000US36",
+  "subjectDef": "All people, male and female, child and adult, living in a given geographic area.",
+  "sourceTableId": "DP05",
+  "sourceProgram": "acs 1-year estimates",
+  "vintage": 2015,
+  "contextVal": 321418821,
+  "contextMOE": "",
+  "contextSubject": "Population of the United States",
+  "contextGeography": "0100000US",
+  "accessURI": "https://data.census.gov/cedsci/widget-framework..."
+}

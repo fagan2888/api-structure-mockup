@@ -1,0 +1,9 @@
+{
+  "listId": "https://api.census.gov/search/v1/#table.0",
+  "tableId": "s0101",
+  "tableName": "age and sex",
+  "program": "acs 1-year estimates",
+  "vintage": [2016],
+  "geography": ["0100000us"],
+  "accessURI": "https://data.census.gov/cedsci/search/map?g=0100000us&ps=app*text@$app*tmtableid@acsst1y2016.s0101$app*tmtablename@age%20and%20sex$app*map@thematic"
+}

@@ -1,0 +1,46 @@
+#%RAML 1.0 Trait
+# external library
+usage: Apply this trait to a GET method that supports the global pagination
+queryParameters:
+  key:
+    displayName: User API Key
+    type: string
+    description: Your Census API key
+    example: xxxxxxxxxxxxx3uld
+    required: false
+  query:
+    displayName: Query
+    type: string
+    description: The query parameter is used for free-text search queries, and will return all content deemed relevant by the query string.
+    example: Population of Monroe County, New York in 2014
+    required: false
+  topic:
+    displayName: Search Topic
+    type: string
+    description: The topic parameter allows users to specify content that are associated with specific topics. List out one or more topics as a colon delimited string to execute an AND operation against all provided topics. As an FYI, a lot of topics can conflict and so start with one and add more to refine. Only content that has been tagged with the associated topics will be returned.
+    example: "[Housing:Housing Units]"
+    required: false
+  geography:
+    displayName: Geography
+    type: string
+    description: The geography parameter allows users to request content that are applicable to a specified geography. Enter individual or multiple geographies as colon-deliminted list of GEOID's (the unique codes we use to identify all statistical geographies). Content that are related to or tabulated at the specified geographies will be returned.
+    example: 0400000US11:0400000US24:0400000US51
+    required: false
+  year:
+    displayName: Years
+    type: string
+    description: The year parameter is used to specify the year or years of interest by passing a YYYY year format as a string, with a colon delimiter between each year. Content originating from the specified year will be returned.
+    example: 2014:2015
+    required: false
+  program:
+    displayName: Surveys and Programs
+    type: string
+    description: The program parameter is used to specify the survey or program. Currently only single programs or surveys are accepted. Only content from the specified program or survey will be returned.
+    example: ACS 1-Year Estimates Comparison Profiles
+    required: false
+  industry:
+    displayName: Industry name or NAICS code
+    type: string
+    description: The industry parameter is used to specify the industry name or NAICS code for applicable content. Only content that includes some reference to the specified NAICS code will be returned.
+    example: 11 - Agriculture, forestry, fishing and hunting
+    required: false

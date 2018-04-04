@@ -1,0 +1,11 @@
+#%RAML 1.0 DataType
+
+properties:
+  resultCount: number
+  results:
+    type: array
+    items:
+      type: !include map.raml
+  moreItems: string
+type: object
+example: !include ../examples/maps.json

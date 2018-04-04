@@ -1,0 +1,22 @@
+{
+  "matchedAddress": "1701 KALORAMA RD NW, WASHINGTON, DC, 20009",
+  "coordinates": {
+    "X": -77.03899,
+    "Y": 38.9213
+  },
+  "tigerLineId": "76223055 Side: R",
+  "addressComponents": {
+    "fromAddress": 1701,
+    "toAddress": 1719,
+    "preQualifier": "",
+    "preDirection": "",
+    "preType": "",
+    "streetName": "KALORAMA",
+    "suffixType": "RD",
+    "suffixDirection": "NW",
+    "suffixQualifier": "",
+    "city": "WASHINGTON",
+    "state": "DC",
+    "zip": 20009
+  }
+}

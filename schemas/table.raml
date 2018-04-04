@@ -1,0 +1,29 @@
+#%RAML 1.0 DataType
+
+displayName: Table
+description: Table object identified with requisite metadata
+properties:
+  listId:
+    displayName: List ID
+    description: Identifier for table item in list.
+    type: string
+    required: true
+  tableId:
+    type: string
+    required: true
+  tableName:
+    type: string
+    required: true
+  program:
+    type: string
+    required: true
+  vintage:
+    type: array
+    required: true
+  geography:
+    type: array
+    required: true
+  accessURI:
+    type: string
+    required: true
+type: object
