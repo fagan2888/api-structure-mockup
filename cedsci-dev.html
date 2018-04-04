@@ -5059,140 +5059,278 @@ under the License.
   &quot;contextGeography&quot;: &quot;0100000US&quot;,
   &quot;accessURI&quot;: &quot;https://data.census.gov/cedsci/widget-framework...&quot;
 }
-</code></pre></div></div></div><hr><div class="set"><div class="set-description"><h2 id="type-table">Table</h2><p>Table object identified with requisite metadata</p><br><p><strong><em><big>Properties</big></em></strong></p></div><div class="set-examples"><blockquote><h3 class="toc-ignore">TYPE DEFINITION</h3></blockquote><div class="languagebox"><pre><code>{
+</code></pre></div></div></div><hr><div class="set"><div class="set-description"><h2 id="type-table-list">Table List</h2><p>This type provides a list of table results.</p><br><p><strong><em><big>Properties</big></em></strong></p></div><div class="set-examples"><blockquote><h3 class="toc-ignore">TYPE DEFINITION</h3></blockquote><div class="languagebox"><pre><code>{
   &quot;name&quot;: &quot;tables&quot;,
   &quot;type&quot;: &quot;object&quot;,
-  &quot;description&quot;: &quot;Table object identified with requisite metadata&quot;,
+  &quot;description&quot;: &quot;This type provides a list of table results.&quot;,
   &quot;properties&quot;: {
-    &quot;listId&quot;: {
-      &quot;type&quot;: &quot;string&quot;,
-      &quot;description&quot;: &quot;Identifier for table item in list.&quot;,
-      &quot;displayName&quot;: &quot;List ID&quot;,
-      &quot;name&quot;: &quot;listId&quot;,
+    &quot;resultCount&quot;: {
+      &quot;name&quot;: &quot;resultCount&quot;,
+      &quot;displayName&quot;: &quot;Result Count&quot;,
       &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
-      &quot;required&quot;: true
-    },
-    &quot;tableId&quot;: {
-      &quot;type&quot;: &quot;string&quot;,
-      &quot;displayName&quot;: &quot;tableId&quot;,
-      &quot;name&quot;: &quot;tableId&quot;,
-      &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
-      &quot;required&quot;: true
-    },
-    &quot;tableName&quot;: {
-      &quot;type&quot;: &quot;string&quot;,
-      &quot;displayName&quot;: &quot;tableName&quot;,
-      &quot;name&quot;: &quot;tableName&quot;,
-      &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
-      &quot;required&quot;: true
-    },
-    &quot;program&quot;: {
-      &quot;type&quot;: &quot;string&quot;,
-      &quot;displayName&quot;: &quot;program&quot;,
-      &quot;name&quot;: &quot;program&quot;,
-      &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
-      &quot;required&quot;: true
-    },
-    &quot;vintage&quot;: {
-      &quot;type&quot;: &quot;array&quot;,
-      &quot;displayName&quot;: &quot;vintage&quot;,
-      &quot;name&quot;: &quot;vintage&quot;,
-      &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+      &quot;type&quot;: &quot;number&quot;,
       &quot;required&quot;: true,
+      &quot;description&quot;: &quot;Provides the number of tables found.&quot;
+    },
+    &quot;results&quot;: {
+      &quot;name&quot;: &quot;results&quot;,
+      &quot;displayName&quot;: &quot;Table Result List&quot;,
+      &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+      &quot;type&quot;: &quot;array&quot;,
+      &quot;required&quot;: true,
+      &quot;description&quot;: &quot;provides a list of table results.&quot;,
       &quot;items&quot;: {
-        &quot;type&quot;: &quot;string&quot;
+        &quot;name&quot;: &quot;items&quot;,
+        &quot;displayName&quot;: &quot;items&quot;,
+        &quot;typePropertyKind&quot;: &quot;INPLACE&quot;,
+        &quot;type&quot;: {
+          &quot;name&quot;: &quot;type&quot;,
+          &quot;displayName&quot;: &quot;Table&quot;,
+          &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;description&quot;: &quot;Table object identified with requisite metadata&quot;,
+          &quot;properties&quot;: {
+            &quot;listId&quot;: {
+              &quot;name&quot;: &quot;listId&quot;,
+              &quot;displayName&quot;: &quot;List ID&quot;,
+              &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;required&quot;: true,
+              &quot;description&quot;: &quot;Identifier for table item in list.&quot;
+            },
+            &quot;tableId&quot;: {
+              &quot;name&quot;: &quot;tableId&quot;,
+              &quot;displayName&quot;: &quot;tableId&quot;,
+              &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;required&quot;: true
+            },
+            &quot;tableName&quot;: {
+              &quot;name&quot;: &quot;tableName&quot;,
+              &quot;displayName&quot;: &quot;tableName&quot;,
+              &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;required&quot;: true
+            },
+            &quot;program&quot;: {
+              &quot;name&quot;: &quot;program&quot;,
+              &quot;displayName&quot;: &quot;program&quot;,
+              &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;required&quot;: true
+            },
+            &quot;vintage&quot;: {
+              &quot;name&quot;: &quot;vintage&quot;,
+              &quot;displayName&quot;: &quot;vintage&quot;,
+              &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+              &quot;type&quot;: &quot;array&quot;,
+              &quot;required&quot;: true
+            },
+            &quot;geography&quot;: {
+              &quot;name&quot;: &quot;geography&quot;,
+              &quot;displayName&quot;: &quot;geography&quot;,
+              &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+              &quot;type&quot;: &quot;array&quot;,
+              &quot;required&quot;: true
+            },
+            &quot;accessURI&quot;: {
+              &quot;name&quot;: &quot;accessURI&quot;,
+              &quot;displayName&quot;: &quot;accessURI&quot;,
+              &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;required&quot;: true
+            }
+          }
+        }
       }
     },
-    &quot;geography&quot;: {
-      &quot;type&quot;: &quot;array&quot;,
-      &quot;displayName&quot;: &quot;geography&quot;,
-      &quot;name&quot;: &quot;geography&quot;,
+    &quot;moreItems&quot;: {
+      &quot;name&quot;: &quot;moreItems&quot;,
+      &quot;displayName&quot;: &quot;moreItems&quot;,
       &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
-      &quot;required&quot;: true,
-      &quot;items&quot;: {
-        &quot;type&quot;: &quot;string&quot;
-      }
-    },
-    &quot;accessURI&quot;: {
       &quot;type&quot;: &quot;string&quot;,
-      &quot;displayName&quot;: &quot;accessURI&quot;,
-      &quot;name&quot;: &quot;accessURI&quot;,
-      &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
-      &quot;required&quot;: true
-    }
-  }
-}</code></pre></div></div></div><hr><div class="set"><div class="set-description"><h2 id="type-maps">maps</h2><br><p><strong><em><big>Properties</big></em></strong></p></div><div class="set-examples"><blockquote><h3 class="toc-ignore">TYPE DEFINITION</h3></blockquote><div class="languagebox"><pre><code>{
-  &quot;name&quot;: &quot;maps&quot;,
-  &quot;type&quot;: &quot;object&quot;,
-  &quot;properties&quot;: {
-    &quot;listId&quot;: {
-      &quot;type&quot;: &quot;string&quot;,
-      &quot;displayName&quot;: &quot;listId&quot;,
-      &quot;name&quot;: &quot;listId&quot;,
-      &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
-      &quot;required&quot;: true
-    },
-    &quot;mapId&quot;: {
-      &quot;type&quot;: &quot;string&quot;,
-      &quot;displayName&quot;: &quot;mapId&quot;,
-      &quot;name&quot;: &quot;mapId&quot;,
-      &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
-      &quot;required&quot;: true
-    },
-    &quot;sourceTableId&quot;: {
-      &quot;type&quot;: &quot;string&quot;,
-      &quot;displayName&quot;: &quot;sourceTableId&quot;,
-      &quot;name&quot;: &quot;sourceTableId&quot;,
-      &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
-      &quot;required&quot;: true
-    },
-    &quot;program&quot;: {
-      &quot;type&quot;: &quot;string&quot;,
-      &quot;displayName&quot;: &quot;program&quot;,
-      &quot;name&quot;: &quot;program&quot;,
-      &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
-      &quot;required&quot;: true
-    },
-    &quot;vintage&quot;: {
-      &quot;type&quot;: &quot;array&quot;,
-      &quot;displayName&quot;: &quot;vintage&quot;,
-      &quot;name&quot;: &quot;vintage&quot;,
-      &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
-      &quot;required&quot;: true,
-      &quot;items&quot;: {
-        &quot;type&quot;: &quot;string&quot;
-      }
-    },
-    &quot;geography&quot;: {
-      &quot;type&quot;: &quot;array&quot;,
-      &quot;displayName&quot;: &quot;geography&quot;,
-      &quot;name&quot;: &quot;geography&quot;,
-      &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
-      &quot;required&quot;: true,
-      &quot;items&quot;: {
-        &quot;type&quot;: &quot;string&quot;
-      }
-    },
-    &quot;accessURI&quot;: {
-      &quot;type&quot;: &quot;string&quot;,
-      &quot;displayName&quot;: &quot;accessURI&quot;,
-      &quot;name&quot;: &quot;accessURI&quot;,
-      &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
       &quot;required&quot;: true
     }
   }
 }</code></pre></div><blockquote><h3 class="toc-ignore">TYPE EXAMPLE</h3></blockquote><div class="languagebox"><pre><code> {
-  &quot;listId&quot;: &quot;https://api.census.gov/search/v1/#map.0&quot;,
-  &quot;mapId&quot;: &quot;var1Col1s0101&quot;,
-  &quot;sourceTableId&quot;: &quot;s0101&quot;,
-  &quot;program&quot;: &quot;acs 1-year estimates&quot;,
-  &quot;vintage&quot;: [2016],
-  &quot;geography&quot;: [&quot;0100000us&quot;],
-  &quot;accessURI&quot;: &quot;https://data.census.gov/cedsci/search/map?g=0100000us&amp;ps=app*text@$app*tmtableid@acsst1y2016.s0101$app*tmtablename@age%20and%20sex$app*map@thematic&quot;
-}
-</code></pre></div></div></div><hr><div class="set"><div class="set-description"><h2 id="type-search">search</h2><br><p><strong><em><big>Properties</big></em></strong></p></div><div class="set-examples"><blockquote><h3 class="toc-ignore">TYPE DEFINITION</h3></blockquote><div class="languagebox"><pre><code>{
+   &quot;resultCount&quot;: 3,
+   &quot;results&quot;: [
+     {
+      &quot;listId&quot;: &quot;https://api.census.gov/search/v1/#table.0&quot;,
+      &quot;tableId&quot;: &quot;s0101&quot;,
+      &quot;tableName&quot;: &quot;age and sex&quot;,
+      &quot;program&quot;: &quot;acs 1-year estimates&quot;,
+      &quot;vintage&quot;: [2016],
+      &quot;geography&quot;: [&quot;0100000us&quot;],
+      &quot;accessURI&quot;: &quot;https://data.census.gov/cedsci/search/map?g=0100000us&amp;ps=app*text@$app*tmtableid@acsst1y2016.s0101$app*tmtablename@age%20and%20sex$app*map@thematic&quot;
+    },
+     {
+      &quot;listId&quot;: &quot;https://api.census.gov/search/v1/#table.1&quot;,
+      &quot;tableId&quot;: &quot;s0101&quot;,
+      &quot;tableName&quot;: &quot;age and sex&quot;,
+      &quot;program&quot;: &quot;acs 1-year estimates&quot;,
+      &quot;vintage&quot;: [2016],
+      &quot;geography&quot;: [&quot;0100000us&quot;],
+      &quot;accessURI&quot;: &quot;https://data.census.gov/cedsci/search/map?g=0100000us&amp;ps=app*text@$app*tmtableid@acsst1y2016.s0101$app*tmtablename@age%20and%20sex$app*map@thematic&quot;
+    },
+     {
+      &quot;listId&quot;: &quot;https://api.census.gov/search/v1/#table.2&quot;,
+      &quot;tableId&quot;: &quot;s0101&quot;,
+      &quot;tableName&quot;: &quot;age and sex&quot;,
+      &quot;program&quot;: &quot;acs 1-year estimates&quot;,
+      &quot;vintage&quot;: [2016],
+      &quot;geography&quot;: [&quot;0100000us&quot;],
+      &quot;accessURI&quot;: &quot;https://data.census.gov/cedsci/search/map?g=0100000us&amp;ps=app*text@$app*tmtableid@acsst1y2016.s0101$app*tmtablename@age%20and%20sex$app*map@thematic&quot;
+    }
+  ],
+   &quot;moreItems&quot;: &quot;https://data.census.gov/cedsci/search/tables&quot;
+ }
+</code></pre></div></div></div><hr><div class="set"><div class="set-description"><h2 id="type-map-list">Map List</h2><p>This type provides a list of map results.</p><br><p><strong><em><big>Properties</big></em></strong></p></div><div class="set-examples"><blockquote><h3 class="toc-ignore">TYPE DEFINITION</h3></blockquote><div class="languagebox"><pre><code>{
+  &quot;name&quot;: &quot;maps&quot;,
+  &quot;type&quot;: &quot;object&quot;,
+  &quot;description&quot;: &quot;This type provides a list of map results.&quot;,
+  &quot;properties&quot;: {
+    &quot;resultCount&quot;: {
+      &quot;name&quot;: &quot;resultCount&quot;,
+      &quot;displayName&quot;: &quot;resultCount&quot;,
+      &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+      &quot;type&quot;: &quot;number&quot;,
+      &quot;required&quot;: true
+    },
+    &quot;results&quot;: {
+      &quot;name&quot;: &quot;results&quot;,
+      &quot;displayName&quot;: &quot;results&quot;,
+      &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+      &quot;type&quot;: &quot;array&quot;,
+      &quot;required&quot;: true,
+      &quot;items&quot;: {
+        &quot;name&quot;: &quot;items&quot;,
+        &quot;displayName&quot;: &quot;items&quot;,
+        &quot;typePropertyKind&quot;: &quot;INPLACE&quot;,
+        &quot;type&quot;: {
+          &quot;name&quot;: &quot;type&quot;,
+          &quot;displayName&quot;: &quot;type&quot;,
+          &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;properties&quot;: {
+            &quot;listId&quot;: {
+              &quot;name&quot;: &quot;listId&quot;,
+              &quot;displayName&quot;: &quot;listId&quot;,
+              &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;required&quot;: true
+            },
+            &quot;mapId&quot;: {
+              &quot;name&quot;: &quot;mapId&quot;,
+              &quot;displayName&quot;: &quot;mapId&quot;,
+              &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;required&quot;: true
+            },
+            &quot;sourceTableId&quot;: {
+              &quot;name&quot;: &quot;sourceTableId&quot;,
+              &quot;displayName&quot;: &quot;sourceTableId&quot;,
+              &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;required&quot;: true
+            },
+            &quot;program&quot;: {
+              &quot;name&quot;: &quot;program&quot;,
+              &quot;displayName&quot;: &quot;program&quot;,
+              &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;required&quot;: true
+            },
+            &quot;vintage&quot;: {
+              &quot;name&quot;: &quot;vintage&quot;,
+              &quot;displayName&quot;: &quot;vintage&quot;,
+              &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+              &quot;type&quot;: &quot;array&quot;,
+              &quot;required&quot;: true
+            },
+            &quot;geography&quot;: {
+              &quot;name&quot;: &quot;geography&quot;,
+              &quot;displayName&quot;: &quot;geography&quot;,
+              &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+              &quot;type&quot;: &quot;array&quot;,
+              &quot;required&quot;: true
+            },
+            &quot;accessURI&quot;: {
+              &quot;name&quot;: &quot;accessURI&quot;,
+              &quot;displayName&quot;: &quot;accessURI&quot;,
+              &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;required&quot;: true
+            }
+          },
+          &quot;examples&quot;: [
+            {
+              &quot;value&quot;: &quot; {\n  \&quot;listId\&quot;: \&quot;https://api.census.gov/search/v1/#map.0\&quot;,\n  \&quot;mapId\&quot;: \&quot;var1Col1s0101\&quot;,\n  \&quot;sourceTableId\&quot;: \&quot;s0101\&quot;,\n  \&quot;program\&quot;: \&quot;acs 1-year estimates\&quot;,\n  \&quot;vintage\&quot;: [2016],\n  \&quot;geography\&quot;: [\&quot;0100000us\&quot;],\n  \&quot;accessURI\&quot;: \&quot;https://data.census.gov/cedsci/search/map?g=0100000us&amp;ps=app*text@$app*tmtableid@acsst1y2016.s0101$app*tmtablename@age%20and%20sex$app*map@thematic\&quot;\n}\n&quot;,
+              &quot;strict&quot;: true,
+              &quot;name&quot;: null,
+              &quot;structuredValue&quot;: {
+                &quot;listId&quot;: &quot;https://api.census.gov/search/v1/#map.0&quot;,
+                &quot;mapId&quot;: &quot;var1Col1s0101&quot;,
+                &quot;sourceTableId&quot;: &quot;s0101&quot;,
+                &quot;program&quot;: &quot;acs 1-year estimates&quot;,
+                &quot;vintage&quot;: [
+                  2016
+                ],
+                &quot;geography&quot;: [
+                  &quot;0100000us&quot;
+                ],
+                &quot;accessURI&quot;: &quot;https://data.census.gov/cedsci/search/map?g=0100000us&amp;ps=app*text@$app*tmtableid@acsst1y2016.s0101$app*tmtablename@age%20and%20sex$app*map@thematic&quot;
+              }
+            }
+          ]
+        }
+      }
+    },
+    &quot;moreItems&quot;: {
+      &quot;name&quot;: &quot;moreItems&quot;,
+      &quot;displayName&quot;: &quot;moreItems&quot;,
+      &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;required&quot;: true
+    }
+  }
+}</code></pre></div><blockquote><h3 class="toc-ignore">TYPE EXAMPLE</h3></blockquote><div class="languagebox"><pre><code> {
+   &quot;resultCount&quot;: 3,
+   &quot;results&quot;: [
+     {
+      &quot;listId&quot;: &quot;https://api.census.gov/search/v1/#map.0&quot;,
+      &quot;mapId&quot;: &quot;var1Col1s0101&quot;,
+      &quot;sourceTableId&quot;: &quot;s0101&quot;,
+      &quot;program&quot;: &quot;acs 1-year estimates&quot;,
+      &quot;vintage&quot;: [2016],
+      &quot;geography&quot;: [&quot;0100000us&quot;],
+      &quot;accessURI&quot;: &quot;https://data.census.gov/cedsci/search/map?g=0100000us&amp;ps=app*text@$app*tmtableid@acsst1y2016.s0101$app*tmtablename@age%20and%20sex$app*map@thematic&quot;
+    },
+     {
+      &quot;listId&quot;: &quot;https://api.census.gov/search/v1/#map.1&quot;,
+      &quot;mapId&quot;: &quot;var1Col1s0101&quot;,
+      &quot;sourceTableId&quot;: &quot;s0101&quot;,
+      &quot;program&quot;: &quot;acs 1-year estimates&quot;,
+      &quot;vintage&quot;: [2016],
+      &quot;geography&quot;: [&quot;0100000us&quot;],
+      &quot;accessURI&quot;: &quot;https://data.census.gov/cedsci/search/map?g=0100000us&amp;ps=app*text@$app*tmtableid@acsst1y2016.s0101$app*tmtablename@age%20and%20sex$app*map@thematic&quot;
+    },
+     {
+      &quot;listId&quot;: &quot;https://api.census.gov/search/v1/#map.2&quot;,
+      &quot;mapId&quot;: &quot;var1Col1s0101&quot;,
+      &quot;sourceTableId&quot;: &quot;s0101&quot;,
+      &quot;program&quot;: &quot;acs 1-year estimates&quot;,
+      &quot;vintage&quot;: [2016],
+      &quot;geography&quot;: [&quot;0100000us&quot;],
+      &quot;accessURI&quot;: &quot;https://data.census.gov/cedsci/search/map?g=0100000us&amp;ps=app*text@$app*tmtableid@acsst1y2016.s0101$app*tmtablename@age%20and%20sex$app*map@thematic&quot;
+    }
+  ],
+   &quot;moreItems&quot;: &quot;https://data.census.gov/cedsci/search/maps&quot;
+ }
+</code></pre></div></div></div><hr><div class="set"><div class="set-description"><h2 id="type-search-list">Search List</h2><p>Provides list of webpages, tables, and maps.</p><br><p><strong><em><big>Properties</big></em></strong></p></div><div class="set-examples"><blockquote><h3 class="toc-ignore">TYPE DEFINITION</h3></blockquote><div class="languagebox"><pre><code>{
   &quot;name&quot;: &quot;search&quot;,
   &quot;type&quot;: &quot;object&quot;,
+  &quot;description&quot;: &quot;Provides list of webpages, tables, and maps.&quot;,
   &quot;properties&quot;: {
     &quot;resultCount&quot;: {
       &quot;name&quot;: &quot;resultCount&quot;,
@@ -5213,9 +5351,10 @@ under the License.
         &quot;typePropertyKind&quot;: &quot;INPLACE&quot;,
         &quot;type&quot;: {
           &quot;name&quot;: &quot;type&quot;,
-          &quot;displayName&quot;: &quot;type&quot;,
+          &quot;displayName&quot;: &quot;Page List&quot;,
           &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
           &quot;type&quot;: &quot;object&quot;,
+          &quot;description&quot;: &quot;This type provides a list of webpage results.&quot;,
           &quot;properties&quot;: {
             &quot;resultCount&quot;: {
               &quot;name&quot;: &quot;resultCount&quot;,
@@ -5510,9 +5649,10 @@ under the License.
         &quot;typePropertyKind&quot;: &quot;INPLACE&quot;,
         &quot;type&quot;: {
           &quot;name&quot;: &quot;type&quot;,
-          &quot;displayName&quot;: &quot;type&quot;,
+          &quot;displayName&quot;: &quot;Map List&quot;,
           &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
           &quot;type&quot;: &quot;object&quot;,
+          &quot;description&quot;: &quot;This type provides a list of map results.&quot;,
           &quot;properties&quot;: {
             &quot;resultCount&quot;: {
               &quot;name&quot;: &quot;resultCount&quot;,
@@ -5777,53 +5917,122 @@ under the License.
    }
  ]
 }
-</code></pre></div></div></div><hr><div class="set"><div class="set-description"><h2 id="type-pages">pages</h2><br><p><strong><em><big>Properties</big></em></strong></p></div><div class="set-examples"><blockquote><h3 class="toc-ignore">TYPE DEFINITION</h3></blockquote><div class="languagebox"><pre><code>{
+</code></pre></div></div></div><hr><div class="set"><div class="set-description"><h2 id="type-page-list">Page List</h2><p>This type provides a list of webpage results.</p><br><p><strong><em><big>Properties</big></em></strong></p></div><div class="set-examples"><blockquote><h3 class="toc-ignore">TYPE DEFINITION</h3></blockquote><div class="languagebox"><pre><code>{
   &quot;name&quot;: &quot;pages&quot;,
   &quot;type&quot;: &quot;object&quot;,
+  &quot;description&quot;: &quot;This type provides a list of webpage results.&quot;,
   &quot;properties&quot;: {
-    &quot;listId&quot;: {
-      &quot;type&quot;: &quot;string&quot;,
-      &quot;displayName&quot;: &quot;listId&quot;,
-      &quot;name&quot;: &quot;listId&quot;,
+    &quot;resultCount&quot;: {
+      &quot;name&quot;: &quot;resultCount&quot;,
+      &quot;displayName&quot;: &quot;resultCount&quot;,
       &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+      &quot;type&quot;: &quot;number&quot;,
       &quot;required&quot;: true
     },
-    &quot;displayURL&quot;: {
-      &quot;type&quot;: &quot;string&quot;,
-      &quot;displayName&quot;: &quot;displayURL&quot;,
-      &quot;name&quot;: &quot;displayURL&quot;,
+    &quot;results&quot;: {
+      &quot;name&quot;: &quot;results&quot;,
+      &quot;displayName&quot;: &quot;results&quot;,
       &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
-      &quot;required&quot;: true
+      &quot;type&quot;: &quot;array&quot;,
+      &quot;required&quot;: true,
+      &quot;items&quot;: {
+        &quot;name&quot;: &quot;items&quot;,
+        &quot;displayName&quot;: &quot;items&quot;,
+        &quot;typePropertyKind&quot;: &quot;INPLACE&quot;,
+        &quot;type&quot;: {
+          &quot;name&quot;: &quot;type&quot;,
+          &quot;displayName&quot;: &quot;type&quot;,
+          &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;properties&quot;: {
+            &quot;listId&quot;: {
+              &quot;name&quot;: &quot;listId&quot;,
+              &quot;displayName&quot;: &quot;listId&quot;,
+              &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;required&quot;: true
+            },
+            &quot;displayURL&quot;: {
+              &quot;name&quot;: &quot;displayURL&quot;,
+              &quot;displayName&quot;: &quot;displayURL&quot;,
+              &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;required&quot;: true
+            },
+            &quot;snippet&quot;: {
+              &quot;name&quot;: &quot;snippet&quot;,
+              &quot;displayName&quot;: &quot;snippet&quot;,
+              &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;required&quot;: true
+            },
+            &quot;title&quot;: {
+              &quot;name&quot;: &quot;title&quot;,
+              &quot;displayName&quot;: &quot;title&quot;,
+              &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;required&quot;: true
+            },
+            &quot;url&quot;: {
+              &quot;name&quot;: &quot;url&quot;,
+              &quot;displayName&quot;: &quot;url&quot;,
+              &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;required&quot;: true
+            }
+          },
+          &quot;examples&quot;: [
+            {
+              &quot;value&quot;: &quot;{\n  \&quot;listId\&quot;: \&quot;https://api.census.gov/search/v1/#web.0\&quot;,\n  \&quot;displayURL\&quot;: \&quot;census.gov/hhes/commuting\&quot;,\n  \&quot;snippet\&quot;: \&quot;Commuting (Journey to Work). Main section. Demographic data and reports from the U.S. Census Bureau\&quot;,\n  \&quot;title\&quot;: \&quot;Commuting (Journey to Work) Main - People and Households ...\&quot;,\n  \&quot;url\&quot;: \&quot;https://www.census.gov/hhes/commuting/\&quot;\n}\n&quot;,
+              &quot;strict&quot;: true,
+              &quot;name&quot;: null,
+              &quot;structuredValue&quot;: {
+                &quot;listId&quot;: &quot;https://api.census.gov/search/v1/#web.0&quot;,
+                &quot;displayURL&quot;: &quot;census.gov/hhes/commuting&quot;,
+                &quot;snippet&quot;: &quot;Commuting (Journey to Work). Main section. Demographic data and reports from the U.S. Census Bureau&quot;,
+                &quot;title&quot;: &quot;Commuting (Journey to Work) Main - People and Households ...&quot;,
+                &quot;url&quot;: &quot;https://www.census.gov/hhes/commuting/&quot;
+              }
+            }
+          ]
+        }
+      }
     },
-    &quot;snippet&quot;: {
-      &quot;type&quot;: &quot;string&quot;,
-      &quot;displayName&quot;: &quot;snippet&quot;,
-      &quot;name&quot;: &quot;snippet&quot;,
+    &quot;moreItems&quot;: {
+      &quot;name&quot;: &quot;moreItems&quot;,
+      &quot;displayName&quot;: &quot;moreItems&quot;,
       &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
-      &quot;required&quot;: true
-    },
-    &quot;title&quot;: {
       &quot;type&quot;: &quot;string&quot;,
-      &quot;displayName&quot;: &quot;title&quot;,
-      &quot;name&quot;: &quot;title&quot;,
-      &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
-      &quot;required&quot;: true
-    },
-    &quot;url&quot;: {
-      &quot;type&quot;: &quot;string&quot;,
-      &quot;displayName&quot;: &quot;url&quot;,
-      &quot;name&quot;: &quot;url&quot;,
-      &quot;typePropertyKind&quot;: &quot;TYPE_EXPRESSION&quot;,
       &quot;required&quot;: true
     }
   }
-}</code></pre></div><blockquote><h3 class="toc-ignore">TYPE EXAMPLE</h3></blockquote><div class="languagebox"><pre><code>{
-  &quot;listId&quot;: &quot;https://api.census.gov/search/v1/#web.0&quot;,
-  &quot;displayURL&quot;: &quot;census.gov/hhes/commuting&quot;,
-  &quot;snippet&quot;: &quot;Commuting (Journey to Work). Main section. Demographic data and reports from the U.S. Census Bureau&quot;,
-  &quot;title&quot;: &quot;Commuting (Journey to Work) Main - People and Households ...&quot;,
-  &quot;url&quot;: &quot;https://www.census.gov/hhes/commuting/&quot;
-}
+}</code></pre></div><blockquote><h3 class="toc-ignore">TYPE EXAMPLE</h3></blockquote><div class="languagebox"><pre><code> {
+   &quot;resultCount&quot;: 3,
+   &quot;results&quot;: [
+     {
+      &quot;listId&quot;: &quot;https://api.census.gov/search/v1/#web.0&quot;,
+      &quot;displayURL&quot;: &quot;census.gov/hhes/commuting&quot;,
+      &quot;snippet&quot;: &quot;Commuting (Journey to Work). Main section. Demographic data and reports from the U.S. Census Bureau&quot;,
+      &quot;title&quot;: &quot;Commuting (Journey to Work) Main - People and Households ...&quot;,
+      &quot;url&quot;: &quot;https://www.census.gov/hhes/commuting/&quot;
+    },
+     {
+      &quot;listId&quot;: &quot;https://api.census.gov/search/v1/#web.1&quot;,
+      &quot;displayURL&quot;: &quot;census.gov/hhes/commuting&quot;,
+      &quot;snippet&quot;: &quot;Commuting (Journey to Work). Main section. Demographic data and reports from the U.S. Census Bureau&quot;,
+      &quot;title&quot;: &quot;Commuting (Journey to Work) Main - People and Households ...&quot;,
+      &quot;url&quot;: &quot;https://www.census.gov/hhes/commuting/&quot;
+    },
+     {
+      &quot;listId&quot;: &quot;https://api.census.gov/search/v1/#web.2&quot;,
+      &quot;displayURL&quot;: &quot;census.gov/hhes/commuting&quot;,
+      &quot;snippet&quot;: &quot;Commuting (Journey to Work). Main section. Demographic data and reports from the U.S. Census Bureau&quot;,
+      &quot;title&quot;: &quot;Commuting (Journey to Work) Main - People and Households ...&quot;,
+      &quot;url&quot;: &quot;https://www.census.gov/hhes/commuting/&quot;
+    }
+  ],
+  &quot;moreItems&quot;: &quot;https://data.census.gov/cedsci/search/web&quot;
+ }
 </code></pre></div></div></div><hr><div class="set"><div class="set-description"><h2 id="type-address">address</h2><br><p><strong><em><big>Properties</big></em></strong></p></div><div class="set-examples"><blockquote><h3 class="toc-ignore">TYPE DEFINITION</h3></blockquote><div class="languagebox"><pre><code>{
   &quot;name&quot;: &quot;address&quot;,
   &quot;type&quot;: &quot;object&quot;,
@@ -5968,4 +6177,4 @@ under the License.
     &quot;zip&quot;: 20009
   }
 }
-</code></pre></div></div></div><hr><h1 id="search">Search</h1><p>Find Census content, which includes data tables, geographic data, and webpages.</p><div class="set"><div class="set-description"><hr><h2 id="search-get">Search get</h2><p><code>GET: /search</code></p><p>Returns a list of searchable content</p><br><p><strong><em><big>Query Parameters</big></em></strong></p><p><strong>key</strong><br>Your Census API key</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>xxxxxxxxxxxxx3uld</code></td></tr></tbody></table><p><strong>query</strong><br>The query parameter is used for free-text search queries, and will return all content deemed relevant by the query string.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>Population of Monroe County, New York in 2014</code></td></tr></tbody></table><p><strong>topic</strong><br>The topic parameter allows users to specify content that are associated with specific topics. List out one or more topics as a colon delimited string to execute an AND operation against all provided topics. As an FYI, a lot of topics can conflict and so start with one and add more to refine. Only content that has been tagged with the associated topics will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>[Housing:Housing Units]</code></td></tr></tbody></table><p><strong>geography</strong><br>The geography parameter allows users to request content that are applicable to a specified geography. Enter individual or multiple geographies as colon-deliminted list of GEOID's (the unique codes we use to identify all statistical geographies). Content that are related to or tabulated at the specified geographies will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>0400000US11:0400000US24:0400000US51</code></td></tr></tbody></table><p><strong>year</strong><br>The year parameter is used to specify the year or years of interest by passing a YYYY year format as a string, with a colon delimiter between each year. Content originating from the specified year will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>2014:2015</code></td></tr></tbody></table><p><strong>program</strong><br>The program parameter is used to specify the survey or program. Currently only single programs or surveys are accepted. Only content from the specified program or survey will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>ACS 1-Year Estimates Comparison Profiles</code></td></tr></tbody></table><p><strong>industry</strong><br>The industry parameter is used to specify the industry name or NAICS code for applicable content. Only content that includes some reference to the specified NAICS code will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>11 - Agriculture, forestry, fishing and hunting</code></td></tr></tbody></table><p><strong>orderBy</strong><br>Order by field: relevance, A-Z</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr></tbody></table><p><strong>order</strong><br>Order</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>oneOf</em></td><td>desc, asc</td></tr></tbody></table><p><strong>offset</strong><br>The `offset` parameter specifies the first entry to return from a collection.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><p><strong>limit</strong><br>The `limit` parameter restricts the number of entries returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><p><strong>page</strong><br>The `page` parameter specifies the page of results to return.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><br><p><strong><em><big>Possible Responses</big></em></strong></p><p>200</p></div><div class="set-examples"><hr><h2 class="toc-ignore" id="search-get">Search get</h2><blockquote><h3 class="toc-ignore">CURL EXAMPLE</h3></blockquote><div class="languagebox bash"><pre><code>curl -X GET &quot;http://{environment}.census.gov/{version}/search?key=xxxxxxxxxxxxx3uld&amp;query=Population of Monroe County, New York in 2014&amp;topic=[Housing:Housing Units]&amp;geography=0400000US11:0400000US24:0400000US51&amp;year=2014:2015&amp;program=ACS 1-Year Estimates Comparison Profiles&amp;industry=11 - Agriculture, forestry, fishing and hunting&quot;</code></pre></div></div></div><p></p><div class="set"><div class="set-description"><hr><h2 id="/quickanswer-get">/quickAnswer get</h2><p><code>GET: /search/quickAnswer</code></p><p>Returns a single answer based on the search parameters</p><br><p><strong><em><big>Query Parameters</big></em></strong></p><p><strong>key</strong><br>Your Census API key</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>xxxxxxxxxxxxx3uld</code></td></tr></tbody></table><p><strong>query</strong><br>The query parameter is used for free-text search queries, and will return all content deemed relevant by the query string.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>Population of Monroe County, New York in 2014</code></td></tr></tbody></table><p><strong>topic</strong><br>The topic parameter allows users to specify content that are associated with specific topics. List out one or more topics as a colon delimited string to execute an AND operation against all provided topics. As an FYI, a lot of topics can conflict and so start with one and add more to refine. Only content that has been tagged with the associated topics will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>[Housing:Housing Units]</code></td></tr></tbody></table><p><strong>geography</strong><br>The geography parameter allows users to request content that are applicable to a specified geography. Enter individual or multiple geographies as colon-deliminted list of GEOID's (the unique codes we use to identify all statistical geographies). Content that are related to or tabulated at the specified geographies will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>0400000US11:0400000US24:0400000US51</code></td></tr></tbody></table><p><strong>year</strong><br>The year parameter is used to specify the year or years of interest by passing a YYYY year format as a string, with a colon delimiter between each year. Content originating from the specified year will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>2014:2015</code></td></tr></tbody></table><p><strong>program</strong><br>The program parameter is used to specify the survey or program. Currently only single programs or surveys are accepted. Only content from the specified program or survey will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>ACS 1-Year Estimates Comparison Profiles</code></td></tr></tbody></table><p><strong>industry</strong><br>The industry parameter is used to specify the industry name or NAICS code for applicable content. Only content that includes some reference to the specified NAICS code will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>11 - Agriculture, forestry, fishing and hunting</code></td></tr></tbody></table><br><p><strong><em><big>Possible Responses</big></em></strong></p><p>200</p></div><div class="set-examples"><hr><h2 class="toc-ignore" id="/quickanswer-get">/quickAnswer get</h2><blockquote><h3 class="toc-ignore">CURL EXAMPLE</h3></blockquote><div class="languagebox bash"><pre><code>curl -X GET &quot;http://{environment}.census.gov/{version}/search/quickAnswer?key=xxxxxxxxxxxxx3uld&amp;query=Population of Monroe County, New York in 2014&amp;topic=[Housing:Housing Units]&amp;geography=0400000US11:0400000US24:0400000US51&amp;year=2014:2015&amp;program=ACS 1-Year Estimates Comparison Profiles&amp;industry=11 - Agriculture, forestry, fishing and hunting&quot;</code></pre></div></div></div><p>Use this endpoint to find Census tables</p><div class="set"><div class="set-description"><hr><h2 id="data-search-get">Data search get</h2><p><code>GET: /search/table</code></p><p>Returns a list of &lt;<resourcepathname|!pluralize>&gt;</resourcepathname|!pluralize></p><br><p><strong><em><big>Query Parameters</big></em></strong></p><p><strong>key</strong><br>Your Census API key</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>xxxxxxxxxxxxx3uld</code></td></tr></tbody></table><p><strong>query</strong><br>The query parameter is used for free-text search queries, and will return all content deemed relevant by the query string.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>Population of Monroe County, New York in 2014</code></td></tr></tbody></table><p><strong>topic</strong><br>The topic parameter allows users to specify content that are associated with specific topics. List out one or more topics as a colon delimited string to execute an AND operation against all provided topics. As an FYI, a lot of topics can conflict and so start with one and add more to refine. Only content that has been tagged with the associated topics will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>[Housing:Housing Units]</code></td></tr></tbody></table><p><strong>geography</strong><br>The geography parameter allows users to request content that are applicable to a specified geography. Enter individual or multiple geographies as colon-deliminted list of GEOID's (the unique codes we use to identify all statistical geographies). Content that are related to or tabulated at the specified geographies will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>0400000US11:0400000US24:0400000US51</code></td></tr></tbody></table><p><strong>year</strong><br>The year parameter is used to specify the year or years of interest by passing a YYYY year format as a string, with a colon delimiter between each year. Content originating from the specified year will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>2014:2015</code></td></tr></tbody></table><p><strong>program</strong><br>The program parameter is used to specify the survey or program. Currently only single programs or surveys are accepted. Only content from the specified program or survey will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>ACS 1-Year Estimates Comparison Profiles</code></td></tr></tbody></table><p><strong>industry</strong><br>The industry parameter is used to specify the industry name or NAICS code for applicable content. Only content that includes some reference to the specified NAICS code will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>11 - Agriculture, forestry, fishing and hunting</code></td></tr></tbody></table><p><strong>orderBy</strong><br>Order by field: relevance, A-Z</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr></tbody></table><p><strong>order</strong><br>Order</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>oneOf</em></td><td>desc, asc</td></tr></tbody></table><p><strong>offset</strong><br>The `offset` parameter specifies the first entry to return from a collection.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><p><strong>limit</strong><br>The `limit` parameter restricts the number of entries returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><p><strong>page</strong><br>The `page` parameter specifies the page of results to return.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><br><p><strong><em><big>Possible Responses</big></em></strong></p><p>200</p></div><div class="set-examples"><hr><h2 class="toc-ignore" id="data-search-get">Data search get</h2><blockquote><h3 class="toc-ignore">CURL EXAMPLE</h3></blockquote><div class="languagebox bash"><pre><code>curl -X GET &quot;http://{environment}.census.gov/{version}/search/table?key=xxxxxxxxxxxxx3uld&amp;query=Population of Monroe County, New York in 2014&amp;topic=[Housing:Housing Units]&amp;geography=0400000US11:0400000US24:0400000US51&amp;year=2014:2015&amp;program=ACS 1-Year Estimates Comparison Profiles&amp;industry=11 - Agriculture, forestry, fishing and hunting&quot;</code></pre></div></div></div><p>Search for map results</p><div class="set"><div class="set-description"><hr><h2 id="map-get">Map get</h2><p><code>GET: /search/map</code></p><p>Returns a list of map elements (a variable and at least one geography)</p><br><p><strong><em><big>Query Parameters</big></em></strong></p><p><strong>key</strong><br>Your Census API key</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>xxxxxxxxxxxxx3uld</code></td></tr></tbody></table><p><strong>query</strong><br>The query parameter is used for free-text search queries, and will return all content deemed relevant by the query string.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>Population of Monroe County, New York in 2014</code></td></tr></tbody></table><p><strong>topic</strong><br>The topic parameter allows users to specify content that are associated with specific topics. List out one or more topics as a colon delimited string to execute an AND operation against all provided topics. As an FYI, a lot of topics can conflict and so start with one and add more to refine. Only content that has been tagged with the associated topics will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>[Housing:Housing Units]</code></td></tr></tbody></table><p><strong>geography</strong><br>The geography parameter allows users to request content that are applicable to a specified geography. Enter individual or multiple geographies as colon-deliminted list of GEOID's (the unique codes we use to identify all statistical geographies). Content that are related to or tabulated at the specified geographies will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>0400000US11:0400000US24:0400000US51</code></td></tr></tbody></table><p><strong>year</strong><br>The year parameter is used to specify the year or years of interest by passing a YYYY year format as a string, with a colon delimiter between each year. Content originating from the specified year will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>2014:2015</code></td></tr></tbody></table><p><strong>program</strong><br>The program parameter is used to specify the survey or program. Currently only single programs or surveys are accepted. Only content from the specified program or survey will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>ACS 1-Year Estimates Comparison Profiles</code></td></tr></tbody></table><p><strong>industry</strong><br>The industry parameter is used to specify the industry name or NAICS code for applicable content. Only content that includes some reference to the specified NAICS code will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>11 - Agriculture, forestry, fishing and hunting</code></td></tr></tbody></table><p><strong>orderBy</strong><br>Order by field: relevance, A-Z</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr></tbody></table><p><strong>order</strong><br>Order</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>oneOf</em></td><td>desc, asc</td></tr></tbody></table><p><strong>offset</strong><br>The `offset` parameter specifies the first entry to return from a collection.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><p><strong>limit</strong><br>The `limit` parameter restricts the number of entries returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><p><strong>page</strong><br>The `page` parameter specifies the page of results to return.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><br><p><strong><em><big>Possible Responses</big></em></strong></p><p>200</p></div><div class="set-examples"><hr><h2 class="toc-ignore" id="map-get">Map get</h2><blockquote><h3 class="toc-ignore">CURL EXAMPLE</h3></blockquote><div class="languagebox bash"><pre><code>curl -X GET &quot;http://{environment}.census.gov/{version}/search/map?key=xxxxxxxxxxxxx3uld&amp;query=Population of Monroe County, New York in 2014&amp;topic=[Housing:Housing Units]&amp;geography=0400000US11:0400000US24:0400000US51&amp;year=2014:2015&amp;program=ACS 1-Year Estimates Comparison Profiles&amp;industry=11 - Agriculture, forestry, fishing and hunting&quot;</code></pre></div></div></div><p>This is the Census geocoder. Enter in an address or break it into the address' constituent parts.</p><div class="set"><div class="set-description"><hr><h2 id="/address-get">/address get</h2><p><code>GET: /search/address</code></p><p>Returns a list of &lt;<resourcepathname|!pluralize>&gt;</resourcepathname|!pluralize></p><br><p><strong><em><big>Query Parameters</big></em></strong></p><p><strong>key</strong><br>Your Census API key</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>true</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>xxxxxxxxxxxxx3uld</code></td></tr></tbody></table><p><strong>query</strong><br>This is the query parameter that allows you to use free-text search queries to find what you're looking for.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>Population of Monroe County, New York in 2014</code></td></tr></tbody></table><p><strong>streetAddress</strong><br></p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr></tbody></table><p><strong>city</strong><br></p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr></tbody></table><p><strong>state</strong><br></p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr></tbody></table><p><strong>zip</strong><br></p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr></tbody></table><p><strong>benchmark</strong><br></p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>oneOf</em></td><td>Public_AR_Current, Public_AR_ACS2016, Public_AR_Census2010</td></tr></tbody></table><br><p><strong><em><big>Possible Responses</big></em></strong></p><p>200</p></div><div class="set-examples"><hr><h2 class="toc-ignore" id="/address-get">/address get</h2><blockquote><h3 class="toc-ignore">CURL EXAMPLE</h3></blockquote><div class="languagebox bash"><pre><code>curl -X GET &quot;http://{environment}.census.gov/{version}/search/address?key=xxxxxxxxxxxxx3uld&amp;query=Population of Monroe County, New York in 2014&quot;</code></pre></div></div></div><p></p><div class="set"><div class="set-description"><hr><h2 id="webpage-search-get">Webpage search get</h2><p><code>GET: /search/page</code></p><p>Returns a list of &lt;<resourcepathname|!pluralize>&gt;</resourcepathname|!pluralize></p><br><p><strong><em><big>Query Parameters</big></em></strong></p><p><strong>key</strong><br>Your Census API key</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>xxxxxxxxxxxxx3uld</code></td></tr></tbody></table><p><strong>query</strong><br>The query parameter is used for free-text search queries, and will return all content deemed relevant by the query string.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>Population of Monroe County, New York in 2014</code></td></tr></tbody></table><p><strong>topic</strong><br>The topic parameter allows users to specify content that are associated with specific topics. List out one or more topics as a colon delimited string to execute an AND operation against all provided topics. As an FYI, a lot of topics can conflict and so start with one and add more to refine. Only content that has been tagged with the associated topics will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>[Housing:Housing Units]</code></td></tr></tbody></table><p><strong>geography</strong><br>The geography parameter allows users to request content that are applicable to a specified geography. Enter individual or multiple geographies as colon-deliminted list of GEOID's (the unique codes we use to identify all statistical geographies). Content that are related to or tabulated at the specified geographies will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>0400000US11:0400000US24:0400000US51</code></td></tr></tbody></table><p><strong>year</strong><br>The year parameter is used to specify the year or years of interest by passing a YYYY year format as a string, with a colon delimiter between each year. Content originating from the specified year will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>2014:2015</code></td></tr></tbody></table><p><strong>program</strong><br>The program parameter is used to specify the survey or program. Currently only single programs or surveys are accepted. Only content from the specified program or survey will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>ACS 1-Year Estimates Comparison Profiles</code></td></tr></tbody></table><p><strong>industry</strong><br>The industry parameter is used to specify the industry name or NAICS code for applicable content. Only content that includes some reference to the specified NAICS code will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>11 - Agriculture, forestry, fishing and hunting</code></td></tr></tbody></table><p><strong>orderBy</strong><br>Order by field: relevance, A-Z</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr></tbody></table><p><strong>order</strong><br>Order</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>oneOf</em></td><td>desc, asc</td></tr></tbody></table><p><strong>offset</strong><br>The `offset` parameter specifies the first entry to return from a collection.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><p><strong>limit</strong><br>The `limit` parameter restricts the number of entries returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><p><strong>page</strong><br>The `page` parameter specifies the page of results to return.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><br><p><strong><em><big>Possible Responses</big></em></strong></p><p>200</p></div><div class="set-examples"><hr><h2 class="toc-ignore" id="webpage-search-get">Webpage search get</h2><blockquote><h3 class="toc-ignore">CURL EXAMPLE</h3></blockquote><div class="languagebox bash"><pre><code>curl -X GET &quot;http://{environment}.census.gov/{version}/search/page?key=xxxxxxxxxxxxx3uld&amp;query=Population of Monroe County, New York in 2014&amp;topic=[Housing:Housing Units]&amp;geography=0400000US11:0400000US24:0400000US51&amp;year=2014:2015&amp;program=ACS 1-Year Estimates Comparison Profiles&amp;industry=11 - Agriculture, forestry, fishing and hunting&quot;</code></pre></div></div></div><h1 id="access">Access</h1><p></p><h1 id="explore">Explore</h1><p></p></div><div class="dark-box"></div></div></body></html>
+</code></pre></div></div></div><hr><h1 id="search">Search</h1><p>Find Census content, which includes data tables, geographic data, and webpages.</p><div class="set"><div class="set-description"><hr><h2 id="search-get">Search get</h2><p><code>GET: /search</code></p><p>Returns a list of searchable content</p><br><p><strong><em><big>Query Parameters</big></em></strong></p><p><strong>key</strong><br>Your Census API key</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>xxxxxxxxxxxxx3uld</code></td></tr></tbody></table><p><strong>query</strong><br>The query parameter is used for free-text search queries, and will return all content deemed relevant by the query string.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>Population of Monroe County, New York in 2014</code></td></tr></tbody></table><p><strong>topic</strong><br>The topic parameter allows users to specify content that are associated with specific topics. List out one or more topics as a colon delimited string to execute an AND operation against all provided topics. As an FYI, a lot of topics can conflict and so start with one and add more to refine. Only content that has been tagged with the associated topics will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>[Housing:Housing Units]</code></td></tr></tbody></table><p><strong>geography</strong><br>The geography parameter allows users to request content that are applicable to a specified geography. Enter individual or multiple geographies as colon-deliminted list of GEOID's (the unique codes we use to identify all statistical geographies). Content that are related to or tabulated at the specified geographies will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>0400000US11:0400000US24:0400000US51</code></td></tr></tbody></table><p><strong>year</strong><br>The year parameter is used to specify the year or years of interest by passing a YYYY year format as a string, with a colon delimiter between each year. Content originating from the specified year will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>2014:2015</code></td></tr></tbody></table><p><strong>program</strong><br>The program parameter is used to specify the survey or program. Currently only single programs or surveys are accepted. Only content from the specified program or survey will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>ACS 1-Year Estimates Comparison Profiles</code></td></tr></tbody></table><p><strong>industry</strong><br>The industry parameter is used to specify the industry name or NAICS code for applicable content. Only content that includes some reference to the specified NAICS code will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>11 - Agriculture, forestry, fishing and hunting</code></td></tr></tbody></table><p><strong>orderBy</strong><br>Order by field: relevance, A-Z</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr></tbody></table><p><strong>order</strong><br>Order</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>oneOf</em></td><td>desc, asc</td></tr></tbody></table><p><strong>offset</strong><br>The `offset` parameter specifies the first entry to return from a collection.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><p><strong>limit</strong><br>The `limit` parameter restricts the number of entries returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><p><strong>page</strong><br>The `page` parameter specifies the page of results to return.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><br><p><strong><em><big>Possible Responses</big></em></strong></p><p>200</p></div><div class="set-examples"><hr><h2 class="toc-ignore" id="search-get">Search get</h2><blockquote><h3 class="toc-ignore">CURL EXAMPLE</h3></blockquote><div class="languagebox bash"><pre><code>curl -X GET &quot;http://{environment}.census.gov/{version}/search?key=xxxxxxxxxxxxx3uld&amp;query=Population of Monroe County, New York in 2014&amp;topic=[Housing:Housing Units]&amp;geography=0400000US11:0400000US24:0400000US51&amp;year=2014:2015&amp;program=ACS 1-Year Estimates Comparison Profiles&amp;industry=11 - Agriculture, forestry, fishing and hunting&quot;</code></pre></div></div></div><p>Use this endpoint to find a single answer to a specific question</p><div class="set"><div class="set-description"><hr><h2 id="quick-answer search-get">Quick Answer search get</h2><p><code>GET: /search/quickAnswer</code></p><p>Returns a single answer based on the search parameters</p><br><p><strong><em><big>Query Parameters</big></em></strong></p><p><strong>key</strong><br>Your Census API key</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>xxxxxxxxxxxxx3uld</code></td></tr></tbody></table><p><strong>query</strong><br>The query parameter is used for free-text search queries, and will return all content deemed relevant by the query string.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>Population of Monroe County, New York in 2014</code></td></tr></tbody></table><p><strong>topic</strong><br>The topic parameter allows users to specify content that are associated with specific topics. List out one or more topics as a colon delimited string to execute an AND operation against all provided topics. As an FYI, a lot of topics can conflict and so start with one and add more to refine. Only content that has been tagged with the associated topics will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>[Housing:Housing Units]</code></td></tr></tbody></table><p><strong>geography</strong><br>The geography parameter allows users to request content that are applicable to a specified geography. Enter individual or multiple geographies as colon-deliminted list of GEOID's (the unique codes we use to identify all statistical geographies). Content that are related to or tabulated at the specified geographies will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>0400000US11:0400000US24:0400000US51</code></td></tr></tbody></table><p><strong>year</strong><br>The year parameter is used to specify the year or years of interest by passing a YYYY year format as a string, with a colon delimiter between each year. Content originating from the specified year will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>2014:2015</code></td></tr></tbody></table><p><strong>program</strong><br>The program parameter is used to specify the survey or program. Currently only single programs or surveys are accepted. Only content from the specified program or survey will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>ACS 1-Year Estimates Comparison Profiles</code></td></tr></tbody></table><p><strong>industry</strong><br>The industry parameter is used to specify the industry name or NAICS code for applicable content. Only content that includes some reference to the specified NAICS code will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>11 - Agriculture, forestry, fishing and hunting</code></td></tr></tbody></table><br><p><strong><em><big>Possible Responses</big></em></strong></p><p>200</p></div><div class="set-examples"><hr><h2 class="toc-ignore" id="quick-answer search-get">Quick Answer search get</h2><blockquote><h3 class="toc-ignore">CURL EXAMPLE</h3></blockquote><div class="languagebox bash"><pre><code>curl -X GET &quot;http://{environment}.census.gov/{version}/search/quickAnswer?key=xxxxxxxxxxxxx3uld&amp;query=Population of Monroe County, New York in 2014&amp;topic=[Housing:Housing Units]&amp;geography=0400000US11:0400000US24:0400000US51&amp;year=2014:2015&amp;program=ACS 1-Year Estimates Comparison Profiles&amp;industry=11 - Agriculture, forestry, fishing and hunting&quot;</code></pre></div></div></div><p>Use this endpoint to find Census tables</p><div class="set"><div class="set-description"><hr><h2 id="table-search-get">Table search get</h2><p><code>GET: /search/table</code></p><p>Returns a list of &lt;<resourcepathname|!pluralize>&gt;</resourcepathname|!pluralize></p><br><p><strong><em><big>Query Parameters</big></em></strong></p><p><strong>key</strong><br>Your Census API key</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>xxxxxxxxxxxxx3uld</code></td></tr></tbody></table><p><strong>query</strong><br>The query parameter is used for free-text search queries, and will return all content deemed relevant by the query string.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>Population of Monroe County, New York in 2014</code></td></tr></tbody></table><p><strong>topic</strong><br>The topic parameter allows users to specify content that are associated with specific topics. List out one or more topics as a colon delimited string to execute an AND operation against all provided topics. As an FYI, a lot of topics can conflict and so start with one and add more to refine. Only content that has been tagged with the associated topics will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>[Housing:Housing Units]</code></td></tr></tbody></table><p><strong>geography</strong><br>The geography parameter allows users to request content that are applicable to a specified geography. Enter individual or multiple geographies as colon-deliminted list of GEOID's (the unique codes we use to identify all statistical geographies). Content that are related to or tabulated at the specified geographies will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>0400000US11:0400000US24:0400000US51</code></td></tr></tbody></table><p><strong>year</strong><br>The year parameter is used to specify the year or years of interest by passing a YYYY year format as a string, with a colon delimiter between each year. Content originating from the specified year will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>2014:2015</code></td></tr></tbody></table><p><strong>program</strong><br>The program parameter is used to specify the survey or program. Currently only single programs or surveys are accepted. Only content from the specified program or survey will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>ACS 1-Year Estimates Comparison Profiles</code></td></tr></tbody></table><p><strong>industry</strong><br>The industry parameter is used to specify the industry name or NAICS code for applicable content. Only content that includes some reference to the specified NAICS code will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>11 - Agriculture, forestry, fishing and hunting</code></td></tr></tbody></table><p><strong>orderBy</strong><br>Order by field: relevance, A-Z</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr></tbody></table><p><strong>order</strong><br>Order</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>oneOf</em></td><td>desc, asc</td></tr></tbody></table><p><strong>offset</strong><br>The `offset` parameter specifies the first entry to return from a collection.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><p><strong>limit</strong><br>The `limit` parameter restricts the number of entries returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><p><strong>page</strong><br>The `page` parameter specifies the page of results to return.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><br><p><strong><em><big>Possible Responses</big></em></strong></p><p>200</p></div><div class="set-examples"><hr><h2 class="toc-ignore" id="table-search-get">Table search get</h2><blockquote><h3 class="toc-ignore">CURL EXAMPLE</h3></blockquote><div class="languagebox bash"><pre><code>curl -X GET &quot;http://{environment}.census.gov/{version}/search/table?key=xxxxxxxxxxxxx3uld&amp;query=Population of Monroe County, New York in 2014&amp;topic=[Housing:Housing Units]&amp;geography=0400000US11:0400000US24:0400000US51&amp;year=2014:2015&amp;program=ACS 1-Year Estimates Comparison Profiles&amp;industry=11 - Agriculture, forestry, fishing and hunting&quot;</code></pre></div></div></div><p>Search for map results</p><div class="set"><div class="set-description"><hr><h2 id="map-search-get">Map Search get</h2><p><code>GET: /search/map</code></p><p>Returns a list of map elements (a variable and at least one geography)</p><br><p><strong><em><big>Query Parameters</big></em></strong></p><p><strong>key</strong><br>Your Census API key</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>xxxxxxxxxxxxx3uld</code></td></tr></tbody></table><p><strong>query</strong><br>The query parameter is used for free-text search queries, and will return all content deemed relevant by the query string.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>Population of Monroe County, New York in 2014</code></td></tr></tbody></table><p><strong>topic</strong><br>The topic parameter allows users to specify content that are associated with specific topics. List out one or more topics as a colon delimited string to execute an AND operation against all provided topics. As an FYI, a lot of topics can conflict and so start with one and add more to refine. Only content that has been tagged with the associated topics will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>[Housing:Housing Units]</code></td></tr></tbody></table><p><strong>geography</strong><br>The geography parameter allows users to request content that are applicable to a specified geography. Enter individual or multiple geographies as colon-deliminted list of GEOID's (the unique codes we use to identify all statistical geographies). Content that are related to or tabulated at the specified geographies will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>0400000US11:0400000US24:0400000US51</code></td></tr></tbody></table><p><strong>year</strong><br>The year parameter is used to specify the year or years of interest by passing a YYYY year format as a string, with a colon delimiter between each year. Content originating from the specified year will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>2014:2015</code></td></tr></tbody></table><p><strong>program</strong><br>The program parameter is used to specify the survey or program. Currently only single programs or surveys are accepted. Only content from the specified program or survey will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>ACS 1-Year Estimates Comparison Profiles</code></td></tr></tbody></table><p><strong>industry</strong><br>The industry parameter is used to specify the industry name or NAICS code for applicable content. Only content that includes some reference to the specified NAICS code will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>11 - Agriculture, forestry, fishing and hunting</code></td></tr></tbody></table><p><strong>orderBy</strong><br>Order by field: relevance, A-Z</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr></tbody></table><p><strong>order</strong><br>Order</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>oneOf</em></td><td>desc, asc</td></tr></tbody></table><p><strong>offset</strong><br>The `offset` parameter specifies the first entry to return from a collection.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><p><strong>limit</strong><br>The `limit` parameter restricts the number of entries returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><p><strong>page</strong><br>The `page` parameter specifies the page of results to return.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><br><p><strong><em><big>Possible Responses</big></em></strong></p><p>200</p></div><div class="set-examples"><hr><h2 class="toc-ignore" id="map-search-get">Map Search get</h2><blockquote><h3 class="toc-ignore">CURL EXAMPLE</h3></blockquote><div class="languagebox bash"><pre><code>curl -X GET &quot;http://{environment}.census.gov/{version}/search/map?key=xxxxxxxxxxxxx3uld&amp;query=Population of Monroe County, New York in 2014&amp;topic=[Housing:Housing Units]&amp;geography=0400000US11:0400000US24:0400000US51&amp;year=2014:2015&amp;program=ACS 1-Year Estimates Comparison Profiles&amp;industry=11 - Agriculture, forestry, fishing and hunting&quot;</code></pre></div></div></div><p>This is the Census geocoder. Enter in an address or break it into the address' constituent parts.</p><div class="set"><div class="set-description"><hr><h2 id="address-search-get">Address Search get</h2><p><code>GET: /search/address</code></p><p>Returns a list of addresses</p><br><p><strong><em><big>Query Parameters</big></em></strong></p><p><strong>key</strong><br>Your Census API key</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>true</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>xxxxxxxxxxxxx3uld</code></td></tr></tbody></table><p><strong>query</strong><br>This is the query parameter that allows you to use free-text search queries to find what you're looking for.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>Population of Monroe County, New York in 2014</code></td></tr></tbody></table><p><strong>streetAddress</strong><br></p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr></tbody></table><p><strong>city</strong><br></p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr></tbody></table><p><strong>state</strong><br></p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr></tbody></table><p><strong>zip</strong><br></p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr></tbody></table><p><strong>benchmark</strong><br></p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>oneOf</em></td><td>Public_AR_Current, Public_AR_ACS2016, Public_AR_Census2010</td></tr></tbody></table><br><p><strong><em><big>Possible Responses</big></em></strong></p><p>200</p></div><div class="set-examples"><hr><h2 class="toc-ignore" id="address-search-get">Address Search get</h2><blockquote><h3 class="toc-ignore">CURL EXAMPLE</h3></blockquote><div class="languagebox bash"><pre><code>curl -X GET &quot;http://{environment}.census.gov/{version}/search/address?key=xxxxxxxxxxxxx3uld&amp;query=Population of Monroe County, New York in 2014&quot;</code></pre></div></div></div><p>Use this endpoint to find census.gov webpages.</p><div class="set"><div class="set-description"><hr><h2 id="webpage-search-get">Webpage search get</h2><p><code>GET: /search/page</code></p><p>Returns a list of &lt;<resourcepathname|!pluralize>&gt;</resourcepathname|!pluralize></p><br><p><strong><em><big>Query Parameters</big></em></strong></p><p><strong>key</strong><br>Your Census API key</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>xxxxxxxxxxxxx3uld</code></td></tr></tbody></table><p><strong>query</strong><br>The query parameter is used for free-text search queries, and will return all content deemed relevant by the query string.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>Population of Monroe County, New York in 2014</code></td></tr></tbody></table><p><strong>topic</strong><br>The topic parameter allows users to specify content that are associated with specific topics. List out one or more topics as a colon delimited string to execute an AND operation against all provided topics. As an FYI, a lot of topics can conflict and so start with one and add more to refine. Only content that has been tagged with the associated topics will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>[Housing:Housing Units]</code></td></tr></tbody></table><p><strong>geography</strong><br>The geography parameter allows users to request content that are applicable to a specified geography. Enter individual or multiple geographies as colon-deliminted list of GEOID's (the unique codes we use to identify all statistical geographies). Content that are related to or tabulated at the specified geographies will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>0400000US11:0400000US24:0400000US51</code></td></tr></tbody></table><p><strong>year</strong><br>The year parameter is used to specify the year or years of interest by passing a YYYY year format as a string, with a colon delimiter between each year. Content originating from the specified year will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>2014:2015</code></td></tr></tbody></table><p><strong>program</strong><br>The program parameter is used to specify the survey or program. Currently only single programs or surveys are accepted. Only content from the specified program or survey will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>ACS 1-Year Estimates Comparison Profiles</code></td></tr></tbody></table><p><strong>industry</strong><br>The industry parameter is used to specify the industry name or NAICS code for applicable content. Only content that includes some reference to the specified NAICS code will be returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>examples</em></td><td><code>11 - Agriculture, forestry, fishing and hunting</code></td></tr></tbody></table><p><strong>orderBy</strong><br>Order by field: relevance, A-Z</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr></tbody></table><p><strong>order</strong><br>Order</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>string</td></tr><tr><td><em>oneOf</em></td><td>desc, asc</td></tr></tbody></table><p><strong>offset</strong><br>The `offset` parameter specifies the first entry to return from a collection.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><p><strong>limit</strong><br>The `limit` parameter restricts the number of entries returned.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><p><strong>page</strong><br>The `page` parameter specifies the page of results to return.</p><table><thead><th>Property</th><th style="width: 99%">Value</th></thead><tbody><tr><td><em>required</em></td><td>false</td></tr><tr><td><em>type</em></td><td>integer</td></tr></tbody></table><br><p><strong><em><big>Possible Responses</big></em></strong></p><p>200</p></div><div class="set-examples"><hr><h2 class="toc-ignore" id="webpage-search-get">Webpage search get</h2><blockquote><h3 class="toc-ignore">CURL EXAMPLE</h3></blockquote><div class="languagebox bash"><pre><code>curl -X GET &quot;http://{environment}.census.gov/{version}/search/page?key=xxxxxxxxxxxxx3uld&amp;query=Population of Monroe County, New York in 2014&amp;topic=[Housing:Housing Units]&amp;geography=0400000US11:0400000US24:0400000US51&amp;year=2014:2015&amp;program=ACS 1-Year Estimates Comparison Profiles&amp;industry=11 - Agriculture, forestry, fishing and hunting&quot;</code></pre></div></div></div><h1 id="access">Access</h1><p></p></div><div class="dark-box"></div></div></body></html>

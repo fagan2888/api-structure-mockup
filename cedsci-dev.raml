@@ -54,10 +54,10 @@ traits:
 
 types:
  quickAnswer: !include schemas/quickAnswer.raml
- tables: !include schemas/table.raml
- maps: !include schemas/map.raml
+ tables: !include schemas/tables.raml
+ maps: !include schemas/maps.raml
  search: !include schemas/search.raml
- pages: !include schemas/page.raml
+ pages: !include schemas/pages.raml
  address: !include schemas/address.raml
 
 # Collection option (example bug prevented it)
@@ -109,6 +109,8 @@ types:
             schema: search
 
   /quickAnswer:
+    displayName: Quick Answer search
+    description: Use this endpoint to find a single answer to a specific question
     get:
       description: Returns a single answer based on the search parameters
       queryParameters:
@@ -121,7 +123,7 @@ types:
             application/json:
               schema: quickAnswer
   /table:
-    displayName: Data search
+    displayName: Table search
     description: Use this endpoint to find Census tables
     get:
       description: Returns a list of <<resourcePathName|!pluralize>>
@@ -138,7 +140,7 @@ types:
               schema: tables
 
   /map:
-    displayName: Map
+    displayName: Map Search
     description: Search for map results
     get:
       description: Returns a list of map elements (a variable and at least one geography)
@@ -154,9 +156,10 @@ types:
             application/json:
               schema: maps
   /address:
+    displayName: Address Search
     description: This is the Census geocoder. Enter in an address or break it into the address' constituent parts.
     get:
-      description: Returns a list of <<resourcePathName|!pluralize>>
+      description: Returns a list of addresses
       queryParameters:
       is: [
         addressParameters,
@@ -169,6 +172,7 @@ types:
 
   /page:
     displayName: Webpage search
+    description: Use this endpoint to find census.gov webpages.
     get:
       description: Returns a list of <<resourcePathName|!pluralize>>
       queryParameters:
@@ -185,5 +189,5 @@ types:
 
 /access:
   displayName: Access
-/explore:
-  displayName: Explore
+# /explore:
+#   displayName: Explore
